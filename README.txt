@@ -1,1 +1,1 @@
-Stuff for my Computer Security work.
+Repository for files my Computer Security class
