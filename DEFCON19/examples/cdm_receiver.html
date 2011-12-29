@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Receiver</title>
+	</head>
+
+	<body>
+		<h4>This RECEIVER is on http://www.eecs.tufts.edu/</h4>
+		<div id="test">Send me a message!</div>
+		<script>
+			console.log("The receiver loaded...");
+			window.addEventListener("message", function(e) {
+				console.log("Receiver: Got data from: " + e.origin);
+				console.log(e.source);
+				document.getElementById("test").textContent = e.origin + " said: " + e.data;
+			}, false);
+		</script>
+	</body>
+</html>

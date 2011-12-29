@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+    <title>HTML 5 Video</title>
+</head>
+<body>
+	<div id="center">
+		<video src="fail.ogg" id="video" controls="control"></video>
+		<div id="feedback"></div>
+		<script type="text/javascript">
+				var video = document.getElementById("video");
+				var feedback = document.getElementById("feedback");
+				video.addEventListener("timeupdate", function() {
+					feedback.style.height = "100%";
+					feedback.style.color = "#30F";
+					if (video.currentTime < 4) {
+						feedback.innerHTML = '<p>If you are using Safari or Internet Explorer you will be missing out on this epic fail.</p>';
+					}
+					else if (video.currentTime > 5 && video.currentTime < 7) {
+						feedback.innerHTML = '<p>Who do you think might be driving? Just remember your guess for later.</p>';
+					}
+					else if (video.currentTime > 10 && video.currentTime < 15) {
+						feedback.innerHTML = '<p>Keep your eye on the counter to see how big a fail this is.</p>';
+					}
+					else if (video.currentTime > 20 && video.currentTime < 24) {
+						feedback.innerHTML = '<p>Well that\'s two tries already. How many more do you think it will take?</p>';
+					}
+					else if (video.currentTime > 27 && video.currentTime < 29) {
+						feedback.innerHTML = '<p>Let\'s try pulling in. That backing up is really hard to do.</p>';
+					}
+					else if (video.currentTime > 31 && video.currentTime < 33) {
+						feedback.innerHTML = '<p>No. That didn\'t work either. Let\'s skip ahead a little bit.</p>';
+					}
+					else if (video.currentTime > 37 && video.currentTime < 46) {
+						feedback.innerHTML = '<p>Yet more FAIL.</p>';
+					}
+					 else if (video.currentTime > 48 && video.currentTime < 53) {
+						feedback.innerHTML = '<p>Are you ready for the savior?</p>';
+					}
+					 else if (video.currentTime > 54 && video.currentTime < 56) {
+						feedback.innerHTML = '<p>Here, let me try.</p>';
+					}
+					 else if (video.currentTime > 57 && video.currentTime < 60) {
+						feedback.innerHTML = '<p>So did you guess right?</p>';
+					}
+					 else if (video.currentTime > 61 && video.currentTime < 66) {
+						feedback.innerHTML = '<p>There\'s no way he\'ll get it!!</p>';
+					}
+					 else if (video.currentTime > 67 && video.currentTime < 70) {
+						feedback.innerHTML = '<p>Like a glove.</p>';
+					}
+					 else if (video.currentTime > 71 && video.currentTime < 73) {
+						feedback.innerHTML = '<p>Only 4 minutes 8 seconds. Impressive :)</p>';
+					}
+					else {
+						feedback.innerHTML = "";
+						feedback.style.color = "#777";
+						feedback.style.height = 0;
+					}
+				}, false);
+		</script>
+	</div>
+</body>
+</html>

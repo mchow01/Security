@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Lab 3</title>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script type="text/javascript" src="json2.js"></script>
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script type="text/javascript">
+			var request;
+			var landmarkLat;
+			var landmarkLng;
+			var landmarkName;
+			var myLat;
+			var myLng;
+			
+			// Get geolocation
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(function(position) {
+					myLat = position.coords.latitude;
+					myLng = position.coords.longitude;
+					
+					// On success, get location of Carmen
+					getLocation();
+				});
+			}
+			else {
+				alert("Geolocation is not supported by your web browser.  What a shame!");
+			}
+			
+			// This creates standard Ajax request object
+			function createRequest()
+			{
+				try {
+					request = new XMLHttpRequest();
+				}
+				catch (ms1) { // yes, exception handling is supported in JavaScript
+					try {
+						request = new ActiveXObject("Msxml2.XMLHTTP");
+					}
+					catch (ms2) {
+						try {
+							request = new ActiveXObject("Microsoft.XMLHTTP");
+						}
+						catch (ex) {
+							request = null;
+						}
+					}
+				}
+				if (request == null) {
+					alert("Ajax is not supported on your web browser.  What a shame!");
+				}
+			}
+			
+			// Get JSON feed (a.k.a, from ACME Computer) that tells me where Carmen is
+			function getLocation()
+			{
+				createRequest();
+				request.onreadystatechange = updatePage;
+				request.open("GET", "acme_xdr.php", true);
+				request.send(null);
+			}
+
+			// Parse the JSON and call function to render map
+			function updatePage()
+			{
+				// Assume that request object has been created
+				if (request.readyState == 4) {
+					var txt = request.responseText;
+					if (txt != "") {
+						var landmark = JSON.parse(txt);
+						landmarkLat = landmark['latitude'];
+						landmarkLng = landmark['longitude'];
+						landmarkName = landmark['note'];
+					}
+					else {
+						landmarkLat = 0;
+						landmarkLng = 0;
+						landmarkName = 'Fail';
+					}
+					renderMap();
+				}
+			}
+			
+			function renderMap()
+			{
+				var landmark = new google.maps.LatLng(landmarkLat, landmarkLng);
+				var me = new google.maps.LatLng(myLat, myLng);
+				
+				// Set up map
+				var myOptions = {
+					zoom: 2, // The larger the zoom number, the bigger the zoom
+					center: landmark,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				
+				// Create the map in the "map_canvas" <div>
+				var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+				// Create a markers
+				var carmen = "carmen.png";	
+				var landmarkMarker = new google.maps.Marker({
+					position: landmark,
+					title: landmarkName,
+					icon: carmen
+				});
+				landmarkMarker.setMap(map);
+				var whereAmI = "<p>I am at " + myLat + ", " + myLng + "</p>";
+				var meMarker = new google.maps.Marker({
+					position: me,
+					title: whereAmI
+				});
+				meMarker.setMap(map);
+								
+				// This is a global info window...
+				var infowindow = new google.maps.InfoWindow();
+				
+				// Open info window on click of marker
+				google.maps.event.addListener(landmarkMarker, 'click', function() {
+					infowindow.close();
+					infowindow.setContent(landmarkMarker.title);
+					infowindow.open(map, landmarkMarker);
+				});
+				google.maps.event.addListener(meMarker, 'click', function() {
+					infowindow.setContent(meMarker.title);
+					infowindow.open(map, meMarker);
+				});
+				
+				// Render polyline
+				var locations = [landmark, me];
+				var path = new google.maps.Polyline({
+					path: locations,
+					strokeColor: "#00FF00",
+					strokeOpacity: 1.0,
+					strokeWeight: 5
+				});
+				path.setMap(map);
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div id="map_canvas"></div>
+	</body>
+</html>

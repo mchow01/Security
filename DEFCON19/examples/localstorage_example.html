@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Local Storage Example</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<script type="text/javascript">
+	function init()
+	{
+		localStorage.setItem('phrase', 'Bonkers');
+		elem = document.getElementById("header");
+		elem.innerHTML = "<h1>The phrase that pays is " + localStorage['phrase'] + "</h1>";
+	}
+	
+	function reload()
+	{
+		elem = document.getElementById("results");
+		output = "";
+		for (key in localStorage) {
+			output = output + "<p>" + localStorage[key] + "</p>\n";
+		}
+		elem.innerHTML = output;
+	}
+	
+	function store()
+	{
+		txt = document.getElementById("something").value;
+		localStorage[new Date().getTime()] = txt;
+		reload();
+	}
+</script>
+</head>
+
+<body onload="init()">
+	<div id="header"></div>
+	<p>Say something: <input type="text" name="something" id="something" onchange="store()" /></p>
+	<div id="results"></div>
+</body>
+</html>

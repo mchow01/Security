@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Web SQL Example 2</title>
+<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+<script type="text/javascript">
+	var db;
+	try {
+		if (window.openDatabase) {
+			db = openDatabase("demo-mchow", "1.0", "OWASP BASC Demo By Ming Chow", 5000);
+			if (db) {
+				db.transaction(function(tx) {
+					tx.executeSql("CREATE TABLE IF NOT EXISTS thoughts (date_key, phrase, handle)");
+				});
+			}
+			else {
+				alert("Whoops, something went wrong with the web database!");
+			}
+		}
+	}
+	catch (e) {
+		alert("It looks like Web SQL is not supported by your browser.  Too bad!");
+	}
+
+	function insertData()
+	{
+		if (db) {
+			key = new Date().getTime();
+			phrase = document.getElementById("phrase").value;
+			handle = document.getElementById("handle").value;
+			db.transaction(function(tx) {
+				// Using prepared statements
+				tx.executeSql("INSERT INTO thoughts (date_key, phrase, handle) VALUES (?, ?, ?)", [key, phrase, handle]);
+			});
+			selectData();
+		}
+		else {
+			alert("Whoops, something went wrong with the web database!");
+		}
+	}
+	
+	function selectData()
+	{
+		if (db) {
+			db.transaction(function(tx) {
+				tx.executeSql("SELECT * FROM thoughts", [] , function(tx, results) {
+					str = "";
+					for (count = 0; count < results.rows.length; count++) {
+						str = str + "<p>" + results.rows.item(count).handle + " said <em>" + results.rows.item(count).phrase +"</em> on " + new Date(results.rows.item(count).date_key) + "</p>\n";
+					}
+					document.getElementById("results").innerHTML = str;
+				});
+			});
+		}
+		else {
+			alert("Whoops, something went wrong with the web database!");
+		}
+	}
+</script>
+</head>
+
+<body onload="selectData()">
+	<p>Say something: <input type="text" name="phrase" id="phrase" /></p>
+	<p>Your handle: <input type="text" name="handle" id="handle" /></p>
+	<p><button onclick="insertData()">Submit</button></p>
+	<div id="results"></div>
+</body>
+</html>
