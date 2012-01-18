@@ -1,1 +1,1 @@
-Repository for files my Computer Security class
+Repository of my Computer and Information Security work.
