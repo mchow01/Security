@@ -15,7 +15,7 @@ To recreate the game on your own server, you will need a LAMP-based web server w
 3. Put all the files in the `www` directory to the `www` directory on your server (e.g., `/var/www`).
 4. Import the MySQL database (via `dump_20121014.sql` in the `sql` folder) to your server.
   * Run: `mysql -u root -p < dump_20121014.sql`
-5. Add the line `;FLAG: "Sinners and saints"` to the `php.ini` file (anywhere in the file) on your server (e.g., `/etc/php5/apache2/php.ini`).
+5. Add the line `;FLAG: "Sinners and saints"` to the `php.ini` file (anywhere in the file) on your server (e.g., in `/etc/php5/apache2/php.ini`).
 6. Create the file `FLAG.txt` in the `www` directory. Make the content of the file: `FLAG: "Witch and wardrobe"`.
 7. Create the file `FLAG.txt` in the root directory `/`. Make the content of the file: `FLAG: "Chaos and creation"`.
 
