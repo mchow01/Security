@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
   if (check(argv[1])) {
-    printf("FLAG: The six'o clock alarm would never ring.\n");
+    printf("FLAG: \"Sons of Abraham.\"\n");
   }
   else {
     printf("%s, you are doing a heckuvajob up to this point!\n", argv[1]);
