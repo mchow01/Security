@@ -21,8 +21,7 @@
 		mysql_select_db($myDatabase) or die("Unable to select database");
 		$query = "";		
 
-// Patched
-//		$id = eval($_GET["id"]);
+		$id = eval($_GET["id"]);
 		// FLAG: "Sons of Sam Horn"
 		$id = $_GET["id"];
 		
