@@ -19,3 +19,6 @@ Go to `http://localhost:5000/ngtnw/` on a web browser that supports HTML5 and lo
 Upon score submission high scores server, the flag is XORed with your high score as a string.  Remaining characters of flag are XORed with "0".  Then, the result is encoded to Base64, and sent back to client to be stored into local storage.
 
 For players to get the flag, the entire process described above must be reversed...
+
+# Acknowledgement
+I want to thank Zach Lanier (quine) for his help on this challenge.
