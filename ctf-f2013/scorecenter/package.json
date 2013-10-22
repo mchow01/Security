@@ -1,0 +1,12 @@
+{
+	"name": "scorecenter",
+	"version": "0.0.1",
+	"dependencies": {
+    	"express": "latest",
+    	"mongodb": "latest"
+    },
+	"engines": {
+		"node": "0.10.3",
+		"npm": "1.2.15"
+	}
+}
