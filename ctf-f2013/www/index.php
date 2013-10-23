@@ -12,7 +12,7 @@
 
 	<?php
 		$myUserName = "root";
-		$myPassword = "!templinuxpw!-mysql";
+		$myPassword = "Wh@t3ver!Wh@t3ver!";
 		$myDatabase = "board";
 		$myHost = "localhost";
 		$dbh = mysql_connect($myHost, $myUserName, $myPassword) or die ('I cannot connect to the database because: ' . mysql_error());		

@@ -21,7 +21,7 @@
 <!-- Hmmm, the plot thickens...-->';
      }
      elseif (isset($_COOKIE['lg']) && strcmp($_COOKIE['lg'], 'true') == 0) {
-     	    echo "<!DOCTYPE html><html><head><title>Main</title></head><body><p>Congratulations!</p></body></html>";
+     	    echo "<!DOCTYPE html><html><head><title>Main</title></head><body><p>Congratulations! Here you go: key{ee16dd465865e2233c2e715f11ef3caf4ac79c03}</p></body></html>";
      }
      else {
                 echo '

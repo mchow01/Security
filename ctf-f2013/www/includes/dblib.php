@@ -1,6 +1,6 @@
 <?php
 	$myUserName = 'root';
-	$myPassword = '!templinuxpw!-mysql';
+	$myPassword = 'Wh@t3ver!Wh@t3ver!';
 	$myDBName = 'board';
 	$myHost = 'localhost';
 	$db = mysql_connect($myHost, $myUserName, $myPassword);
