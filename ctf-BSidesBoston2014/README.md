@@ -1,9 +1,9 @@
 #To play: installation
 1. Install LAMP server
-2. Install MongoDB: http://docs.mongodb.org/ecosystem/platforms/amazon-ec2/
+2. Install MongoDB
 3. Install PHP-Mongo driver: http://www.php.net/manual/en/mongo.installation.php#mongo.installation.nix
 4. See this on getting the PHP-Mongo driver working: http://stackoverflow.com/questions/22952994/mongo-so-undefined-symbol-php-json-encode-in-unknown-on-line-0-after-instal
-5. Unzip `mongo_data.zip` and move files (`financials*`) to MongoDB data directory (e.g., `/usr/local/var/mongodb`) to the MongoDB data directory on AWS.
+5. Unzip `mongo_data.zip` and move files (`financials*`) to MongoDB data directory (e.g., `/usr/local/var/mongodb`) to the MongoDB data directory
 6. Move the files in the ~/www in the VM to the `www` folder
 7. Change one of the text records in the `news` collection of the `financials` database to `JPDmAg7j7IFfQb1oSv4k`
 
