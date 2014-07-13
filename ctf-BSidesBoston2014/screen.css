@@ -1,0 +1,23 @@
+body {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 24px;
+	background-color: #000000;
+	color: #00FF00;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.created_at {
+	font-size: 14px;
+}
+
+a:link {
+	color:#00FF00;
+}
+
+a:hover {
+	color:yellow;
+}
+
+a:visited {
+	color:gray;
+}
