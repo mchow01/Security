@@ -1,0 +1,132 @@
+body {
+	background-color: black;
+}
+html, body {
+  width:  100%;
+  height: 100%;
+  margin: 0px;
+}
+
+#footer{
+	border-top-style: groove;
+	border-top-color: #ff2222;
+	border-top-width: 5px;
+	background-color: black;
+	width:100%;
+	height: 100px;
+}
+
+.score{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	margin-left: 15px;
+	font-family: fantasy;
+	color: #ff2222;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.hscore_name{
+	display: none;
+}
+
+.hscore{
+	display: none;
+}
+
+#left{
+	float:left;
+	width:25%
+}
+
+#center{
+	float:left;
+	margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+}
+
+#right{
+	float:right;
+	width:25%;
+}
+
+#game_over{
+	font-weight: bold;
+	display: none;
+	font-family: fantasy;
+	color: #ff2222;
+	font-size: 15px;
+	color: #0001ff;
+}
+
+#invalid{
+	display:none;
+}
+
+#retry{
+	font-weight: bold;
+	font-family: fantasy;
+	color: #ff2222;
+	font-size: 15px;
+	margin-bottom:10px;
+	text-align: center;
+}
+
+#entry_box{
+	background-color: #464646;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	height:35px;
+	color: white;
+	font-family: fantasy;
+	font-size:18px;
+	text-autospace: inherit;
+}
+
+#entry_button{
+	border:1px solid; 
+	border-color: #696 #363 #363 #696; 
+}
+
+#scoresTable{
+	width:300px;
+	margin-bottom: 10px;
+	
+}
+
+#scoresDiv{
+	text-align: center;
+	border-width:1px 1px 1px 1px;
+	border-style:solid;
+	border-color:red;
+
+	td {
+		text-align:center;
+	}
+	h1{
+		color: red;
+	}
+
+}
+
+#fancybox-content {
+	border-width:1px 1px 1px 1px;
+	border-style:solid;
+	border-color:black;
+	background-color: black;
+	color:white
+}
+
+.life{
+	width:20px;
+	height:20px;
+	background-color: blue;
+	float: right;
+	margin: 10px 10px 10px 10px;
+	
+}
+
+
